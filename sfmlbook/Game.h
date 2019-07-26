@@ -17,13 +17,15 @@ private:
 	bool mIsMovingDown=false;
 	bool mIsMovingRight=false;
 	bool mIsMovingLeft=false;
-	float PlayerSpeed = 150.f;
+	float PlayerSpeed = 100.f;
 	sf::Time TimerPerFrame = sf::seconds(1.f / 60.f);
 
 
 private:
+	sf::Sprite mPlayer;
+	sf::Texture mTexture;
 	sf::RenderWindow mWindow;
-	sf::CircleShape mPlayer;
+	
 
 };
 

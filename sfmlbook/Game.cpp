@@ -1,12 +1,20 @@
 #include "Game.h"
-
+#include <iostream>
 Game::Game()
 :mWindow(sf::VideoMode(640,480),"SFML Application")
-,mPlayer()
+, mTexture()
+, mPlayer()
 {
-	mPlayer.setRadius(40.f);
+	/*mPlayer.setRadius(40.f);
 	mPlayer.setPosition(0.f,0.f);
-	mPlayer.setFillColor(sf::Color::Cyan);
+	mPlayer.setFillColor(sf::Color::Cyan);*/
+	
+	if (!mTexture.loadFromFile("Media/Texture/Eagle.png"))
+	{
+		// Handle loading error
+	}
+	mPlayer.setTexture(mTexture);
+	mPlayer.setPosition(100.f, 100.f);
 }
 void Game::run() 
 {
@@ -79,6 +87,14 @@ void Game::update(sf::Time deltaTime)
 
 void Game::render() 
 {
+	sf::Texture texture;
+	if (!texture.loadFromFile("Media/Texture/Eagle.png"))
+	{
+		// Handle loading error
+		std::cout << "no encontro el archivo";
+	}
+	sf::Sprite sprite(texture);
+	sprite.setPosition(100.f, 100.f);
 	
 	mWindow.clear();
 	mWindow.draw(mPlayer);
