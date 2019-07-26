@@ -20,6 +20,7 @@ private:
 	float PlayerSpeed = 150.f;
 	sf::Time TimerPerFrame = sf::seconds(1.f / 60.f);
 
+
 private:
 	sf::RenderWindow mWindow;
 	sf::CircleShape mPlayer;
